@@ -15,7 +15,7 @@ public class WebConfiguration implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         log.info("jinlaile");
         registry.addInterceptor(new TokenInterceptor()) //注册拦截器
-                .addPathPatterns("/**") //拦截一切请求(任何请求路径)
-                .excludePathPatterns("/**/login");//放过login登录请求
+                .excludePathPatterns("/login/**")//放过login登录请求
+                .addPathPatterns("/**"); //拦截一切请求(任何请求路径)
     }
 }
